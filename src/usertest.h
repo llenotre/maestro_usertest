@@ -8,5 +8,6 @@ typedef struct
 } testsuite_t;
 
 int file_testsuite(void);
+int time_testsuite(void);
 
 #endif

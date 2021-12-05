@@ -6,6 +6,7 @@ int main()
 {
 	testsuite_t testsuites[] = {
 		{"file", file_testsuite},
+		{"time", time_testsuite},
 	};
 	int failed = 0;
 
