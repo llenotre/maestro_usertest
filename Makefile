@@ -19,7 +19,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $(OBJ)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HDR) $(OBJ_DIR)
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $< -DSTRESS_TEST
 
 clean:
 	rm -r $(OBJ_DIR)

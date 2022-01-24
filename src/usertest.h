@@ -1,6 +1,8 @@
 #ifndef USERTEST_H
 # define USERTEST_H
 
+int stress_test(void);
+
 typedef struct
 {
 	const char *name;

@@ -4,6 +4,9 @@
 
 int main()
 {
+#ifdef STRESS_TEST
+	return !stress_test();
+#else
 	testsuite_t testsuites[] = {
 		{"file", file_testsuite},
 		{"time", time_testsuite},
@@ -22,6 +25,6 @@ int main()
 			failed = 1;
 		}
 	}
-
 	return failed;
+#endif
 }
