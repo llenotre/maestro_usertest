@@ -10,6 +10,7 @@ int test_time0(void)
 		size_t t = time(NULL);
 		if (t < prev)
 			return 0;
+		prev = t;
 	}
 	return 1;
 }

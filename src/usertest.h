@@ -11,5 +11,6 @@ typedef struct
 
 int file_testsuite(void);
 int time_testsuite(void);
+int memory_testsuite(void);
 
 #endif

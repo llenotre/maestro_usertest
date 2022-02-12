@@ -1,7 +1,7 @@
 NAME = usertest
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CC ?= gcc
+CFLAGS = -Wall -Wextra -Werror -DSTRESS_TEST
 
 SRC_DIR = src/
 SRC := $(shell find $(SRC_DIR) -type f -name "*.c")
@@ -19,7 +19,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $(OBJ)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HDR) $(OBJ_DIR)
-	$(CC) $(CFLAGS) -o $@ -c $< -DSTRESS_TEST
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	rm -r $(OBJ_DIR)
