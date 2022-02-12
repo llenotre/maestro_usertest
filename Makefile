@@ -1,6 +1,6 @@
 NAME = usertest
 
-CC = gcc
+CC ?= gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_DIR = src/
