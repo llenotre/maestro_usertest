@@ -25,7 +25,7 @@ int stress_test(void)
 		{
 			pid = getpid();
 
-			for (size_t i = 0; i < 1024; ++i)
+			for (size_t i = 0; i < 64; ++i)
 				if (fork() == 0)
 					break;
 
@@ -33,7 +33,7 @@ int stress_test(void)
 			{
 				int failed = 0;
 
-				for (size_t i = 0; i < 1024; ++i)
+				for (size_t i = 0; i < 64; ++i)
 				{
 					int status;
 					waitpid(pid, &status, 0);
@@ -51,6 +51,7 @@ int stress_test(void)
 			char name[1024];
 			sprintf(name, "./test/test%d", pid);
 
+			printf("Open %s\n", name);
 			int fd = open(name, O_CREAT | O_RDWR, S_IRWXU);
 			if (fd < 0)
 			{
@@ -77,6 +78,7 @@ int stress_test(void)
 				exit(1);
 			}
 
+			printf("Remove %s\n", name);
 			if (unlink(name) < 0)
 			{
 				printf("Failed to remove :( %d\n", errno);
